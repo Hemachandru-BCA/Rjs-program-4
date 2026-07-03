@@ -7,8 +7,10 @@ let studentDetails = [
 ];
 
 function getStudentDetails(students) {
-    const {name, dept, age} = studentDetails;
+  for(const {name,age,dept} of studentDetails){
+    console.log(name,age,dept);
+  } 
     
 }
 
-module.exports = getStudentDetails;
+getStudentDetails(studentDetails);
