@@ -13,4 +13,4 @@ function getStudentDetails(students) {
     
 }
 
-getStudentDetails(studentDetails);
+let result = getStudentDetails(studentDetails);
