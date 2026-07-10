@@ -1,20 +1,11 @@
-const getStudentDetails = require("./index");
+const fs = require("fs");
 
-const students = [
-    { name: "Alice", age: 20, grade: "A" },
-    { name: "Bob", age: 21, grade: "B" }
-];
+describe("Template Literal Check", () => {
+  test("uses the required template literal", () => {
+    const code = fs.readFileSync("index.js", "utf8");
 
-const expected = [
-    "Alice 20 A",
-    "Bob 21 B"
-];
-
-const result = getStudentDetails(students);
-
-if (JSON.stringify(result) === JSON.stringify(expected)) {
-    console.log("All Test Cases Passed");
-} else {
-    console.log("Test Failed");
-    process.exit(1);
-}
+    expect(code).toMatch(
+      /return\s*`Hello \$\{name\}, Your age is \$\{age\}\.`;/
+    );
+  });
+});
